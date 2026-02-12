@@ -1,179 +1,237 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AETHER AI | Agencia de Marketing de Lujo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0a;
+      margin: 0;
+      overflow-x: hidden;
+      color: white;
+    }
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #262626;
+    }
+    .cinematic-frame {
+      border: 1.5rem solid #000;
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+    }
+    @media (max-width: 768px) {
+      .cinematic-frame {
+        border: 0.5rem solid #000;
+      }
+    }
+    .text-outline {
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+      color: transparent;
+    }
+    section {
+      position: relative;
+    }
+  </style>
 
-<title>Luxury AI Marketing</title>
+  <!-- Amazon Connect Snippet -->
+  <script type="text/javascript">
+    (function(w, d, x, id){
+      s=d.createElement('script');
+      s.src='https://moquintana.my.connect.aws/connectwidget/static/amazon-connect-chat-interface-client.js';
+      s.async=1;
+      s.id=id;
+      d.getElementsByTagName('head')[0].appendChild(s);
+      w[x] =  w[x] || function() { (w[x].ac = w[x].ac || []).push(arguments) };
+    })(window, document, 'amazon_connect', '1ea1540d-f642-439f-8dbe-0288fa8db012');
+    amazon_connect('styles', { iconType: 'CHAT', openChat: { color: '#ffffff', backgroundColor: '#123456' }, closeChat: { color: '#ffffff', backgroundColor: '#123456'} });
+    amazon_connect('snippetId', 'QVFJREFIZ0pCYTZ0Qi9waDNsZUIxbk9FM1lyUERza2Y3cWdnTG91REVVZjdQRzNwY1FFTWpNWlI2UEczUDIrbWtWeVZGaXZTQUFBQWJqQnNCZ2txaGtpRzl3MEJCd2FnWHpCZEFnRUFNRmdHQ1NxR1NJYjNEUUVIQVRBZUJnbGdoa2dCWlFNRUFTNHdFUVFNTldMbGpDYlFwQXYzTVp1OUFnRVFnQ3MxaTV3RGVMSmkzZTYyMkVoMytxVVEvOVlOZG50KzBNdUdtdk1ZVFdlaHZYVmpBY3VoYmRWUy8xTVo6OklLQ3VvRk9Qc1lCWTlBUDhSYWppaGRKQktpenE5a05OWEhqVFltc0JkbkVqS2hmZlcwWUc2WE1Ocms0aHdqbjJrcjh0WVQ5NEVGY2liR3JQQTF1WmJ4WTdPcEJZNlFqcVpoQk9tT2JoMVU0Zmp4WGRUOENCVjhVc3hIUGlqYnJMcTVwZlF3WUpsSGRqa01KS1hNWDVNSHBKTUREVU5DUT0=');
+    amazon_connect('supportedMessagingContentTypes', [ 'text/plain', 'text/markdown', 'application/vnd.amazonaws.connect.message.interactive', 'application/vnd.amazonaws.connect.message.interactive.response' ]);
+  </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;800&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "framer-motion": "https://esm.sh/framer-motion@12.0.0",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
 }
-
-body{
-font-family:'Montserrat',sans-serif;
-background:#111;
-color:#f8f8f8;
-overflow-x:hidden;
-}
-
-/* FRAME */
-
-.frame{
-border:18px solid #000;
-}
-
-/* HERO */
-
-.hero{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-background:
-linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
-url("https://images.unsplash.com/photo-1557683316-973673baf926") center/cover no-repeat;
-}
-
-.hero h1{
-font-size:clamp(3rem,8vw,8rem);
-letter-spacing:1rem;
-font-weight:800;
-text-transform:uppercase;
-margin-bottom:20px;
-text-shadow:0 0 20px rgba(255,255,255,0.15);
-}
-
-.hero p{
-font-weight:300;
-font-size:1.3rem;
-opacity:0.95;
-}
-
-/* SECTIONS */
-
-.section{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:40px;
-background:linear-gradient(135deg,#1a1a1a,#2a2a2a);
-}
-
-.section-content{
-max-width:900px;
-background:rgba(255,255,255,0.05);
-padding:50px;
-border-radius:14px;
-backdrop-filter:blur(6px);
-box-shadow:0 0 40px rgba(0,0,0,0.6);
-}
-
-.section h2{
-font-size:3rem;
-letter-spacing:0.3rem;
-margin-bottom:20px;
-}
-
-.section p{
-font-weight:300;
-line-height:1.7;
-opacity:0.9;
-}
-
-/* FOOTER */
-
-footer{
-padding:40px;
-text-align:center;
-background:#000;
-opacity:0.6;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.hero h1{letter-spacing:0.4rem;}
-.section h2{font-size:2rem;}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="frame">
-
-<section class="hero">
-<div>
-<h1>AI LUXURY</h1>
-<p>Marketing cinematográfico impulsado por inteligencia artificial</p>
-</div>
-</section>
-
-<section class="section">
-<div class="section-content">
-<h2>ESTRATEGIA PREMIUM</h2>
-<p>
-Transformamos datos en experiencias visuales que posicionan marcas
-con elegancia y precisión tecnológica.
-</p>
-</div>
-</section>
-
-<section class="section">
-<div class="section-content">
-<h2>IA + CREATIVIDAD</h2>
-<p>
-Automatización inteligente fusionada con narrativa cinematográfica
-para generar impacto emocional.
-</p>
-</div>
-</section>
-
-<section class="section">
-<div class="section-content">
-<h2>EXPERIENCIAS INMERSIVAS</h2>
-<p>
-Diseño atmosférico que convierte interacción digital
-en arte estratégico de alto nivel.
-</p>
-</div>
-</section>
-
-<footer>
-Luxury AI Marketing © 2026
-</footer>
-
-</div>
-
-<!-- AMAZON CONNECT CHAT -->
-
-<script type="text/javascript">
-(function(w, d, x, id){
-s=d.createElement('script');
-s.src='https://moquintana.my.connect.aws/connectwidget/static/amazon-connect-chat-interface-client.js';
-s.async=1;
-s.id=id;
-d.getElementsByTagName('head')[0].appendChild(s);
-w[x]=w[x]||function(){(w[x].ac=w[x].ac||[]).push(arguments)};
-})(window,document,'amazon_connect','1ea1540d-f642-439f-8dbe-0288fa8db012');
-
-amazon_connect('styles',{iconType:'CHAT',openChat:{color:'#ffffff',backgroundColor:'#123456'},closeChat:{color:'#ffffff',backgroundColor:'#123456'}});
-amazon_connect('snippetId','QVFJREFIZ0pCYTZ0Qi9waDNsZUIxbk9FM1lyUERza2Y3cWdnTG91REVVZjdQRzNwY1FFTWpNWlI2UEczUDIrbWtWeVZGaXZTQUFBQWJqQnNCZ2txaGtpRzl3MEJCd2FnWHpCZEFnRUFNRmdHQ1NxR1NJYjNEUUVIQVRBZUJnbGdoa2dCWlFNRUFTNHdFUVFNTldMbGpDYlFwQXYzTVp1OUFnRVFnQ3MxaTV3RGVMSmkzZTYyMkVoMytxVVEvOVlOZG50KzBNdUdtdk1ZVFdlaHZYVmpBY3VoYmRWUy8xTVo6OklLQ3VvRk9Qc1lCWTlBUDhSYWppaGRKQktpenE5a05OWEhqVFltc0JkbkVqS2hmZlcwWUc2WE1Ocms0aHdqbjJrcjh0WVQ5NEVGY2liR3JQQTF1WmJ4WTdPcEJZNlFqcVpoQk9tT2JoMVU0Zmp4WGRUOENCVjhVc3hIUGlqYnJMcTVwZlF3WUpsSGRqa01KS1hNWDVNSHBKTUREVU5DUT0=');
-amazon_connect('supportedMessagingContentTypes',['text/plain','text/markdown','application/vnd.amazonaws.connect.message.interactive','application/vnd.amazonaws.connect.message.interactive.response']);
 </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="root"></div>
 
+  <script type="module">
+    import React, { useState, useEffect } from 'react';
+    import ReactDOM from 'react-dom/client';
+    import { motion, AnimatePresence } from 'framer-motion';
+
+    // --- Component: Navbar ---
+    const Navbar = () => {
+      const [scrolled, setScrolled] = useState(false);
+      useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 50);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
+
+      return (
+        <motion.nav
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.8 }}
+          className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-8 md:px-24 py-8 ${scrolled ? 'bg-black/80 backdrop-blur-md py-6' : 'bg-transparent'}`}
+        >
+          <div className="max-w-screen-2xl mx-auto flex justify-between items-center">
+            <div className="flex flex-col">
+              <span className="text-xl font-black tracking-[0.5em] uppercase">Aether</span>
+              <span className="text-[0.5rem] tracking-[0.8em] uppercase text-stone-500">Intelligence Agency</span>
+            </div>
+            <div className="hidden md:flex gap-12">
+              {['Perspective', 'Couture', 'Intelligence', 'Dialogue'].map(item => (
+                <a key={item} href="#" className="text-[0.6rem] uppercase tracking-[0.4em] text-stone-400 hover:text-white transition-colors">{item}</a>
+              ))}
+            </div>
+            <button className="text-[0.6rem] uppercase tracking-[0.4em] border border-white/20 px-6 py-2 hover:bg-white hover:text-black transition-all">
+              Inquire
+            </button>
+          </div>
+        </motion.nav>
+      );
+    };
+
+    // --- Component: Hero ---
+    const Hero = () => (
+      <section className="relative h-screen flex items-center justify-center bg-black overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000')] bg-cover bg-center opacity-40 grayscale" style={{ filter: 'sepia(0.2) brightness(0.5)' }}></div>
+        <div className="relative z-10 text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
+            <span className="text-[0.6rem] uppercase tracking-[1.5em] text-stone-500 mb-8 block">Neural Architecture</span>
+            <h1 className="text-6xl md:text-[10rem] font-black tracking-[0.2em] leading-none uppercase text-white">AETHER</h1>
+            <h2 className="text-3xl md:text-6xl font-light tracking-[0.5em] uppercase text-stone-500 -mt-4 italic">Intelligence</h2>
+          </motion.div>
+        </div>
+      </section>
+    );
+
+    // --- Component: PortfolioSection ---
+    const PortfolioSection = ({ title, subtitle, imageUrl, reversed }) => (
+      <section className="relative h-screen w-full overflow-hidden flex flex-col justify-end p-8 md:p-24 group">
+        <div 
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-[5s] scale-105 group-hover:scale-100 grayscale brightness-50"
+          style={{ backgroundImage: `url('${imageUrl}')`, filter: 'sepia(0.1) brightness(0.4)' }}
+        ></div>
+        <div className={`relative z-10 max-w-2xl ${reversed ? 'ml-auto text-right' : ''}`}>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}>
+            <h3 className="text-4xl md:text-7xl font-black uppercase tracking-widest mb-4">{title}</h3>
+            <p className="text-stone-400 tracking-[0.2em] uppercase text-sm font-light">{subtitle}</p>
+          </motion.div>
+        </div>
+      </section>
+    );
+
+    // --- Component: AboutSection ---
+    const AboutSection = () => (
+      <section className="py-48 px-8 md:px-24 bg-[#0a0a0a]">
+        <div className="max-w-screen-xl mx-auto grid md:grid-cols-12 gap-12">
+          <div className="md:col-span-4">
+            <span className="text-[0.6rem] font-bold tracking-[1em] text-stone-600 uppercase">The Agency</span>
+          </div>
+          <div className="md:col-span-8">
+            <p className="text-2xl md:text-5xl font-light leading-snug tracking-tight text-stone-300">
+              Transformamos marcas de alto valor a través de <span className="text-white italic font-normal">estética computacional</span> y algoritmos de deseo. No hacemos marketing; diseñamos el futuro de la percepción.
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+
+    // --- Component: Footer ---
+    const Footer = () => (
+      <footer className="bg-black py-24 px-8 md:px-24 border-t border-white/5">
+        <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-end gap-12">
+          <div>
+            <h4 className="text-4xl font-black tracking-tighter uppercase mb-8">Ready to <br/>ascend?</h4>
+            <p className="text-stone-600 text-[0.6rem] tracking-[0.5em] uppercase">Private inquiry only.</p>
+          </div>
+          <div className="text-right">
+            <span className="text-[0.5rem] tracking-[1em] text-stone-700 uppercase">Aether AI &copy; 2025 // All rights reserved</span>
+          </div>
+        </div>
+      </footer>
+    );
+
+    // --- Main App ---
+    const App = () => {
+      const [isLoaded, setIsLoaded] = useState(false);
+      useEffect(() => {
+        setTimeout(() => setIsLoaded(true), 1500);
+      }, []);
+
+      return (
+        <div className="bg-[#0a0a0a]">
+          <div className="cinematic-frame"></div>
+          
+          <AnimatePresence>
+            {!isLoaded && (
+              <motion.div 
+                exit={{ opacity: 0 }} 
+                className="fixed inset-0 z-[200] bg-black flex items-center justify-center"
+              >
+                <span className="text-[0.5rem] tracking-[2em] uppercase animate-pulse">Aether</span>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <Navbar />
+          <Hero />
+          <AboutSection />
+          
+          <PortfolioSection 
+            title="VISUAL CORE" 
+            subtitle="Identidades generadas por redes neuronales profundas." 
+            imageUrl="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000"
+            reversed={false}
+          />
+          <PortfolioSection 
+            title="NEURAL SCALE" 
+            subtitle="Estrategias de crecimiento que aprenden del mercado." 
+            imageUrl="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2000"
+            reversed={true}
+          />
+          <PortfolioSection 
+            title="LUXURY DATA" 
+            subtitle="Análisis predictivo para audiencias de ultra-lujo." 
+            imageUrl="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2000"
+            reversed={false}
+          />
+
+          <Footer />
+        </div>
+      );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+<script type="module" src="/index.tsx"></script>
 </body>
 </html>

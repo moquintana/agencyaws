@@ -1,0 +1,8 @@
+{
+  "name": "AETHER AI - Luxury Marketing Agency",
+  "description": "A cinematic, premium marketing agency landing page inspired by high-end architectural portfolios and Apple-esque minimalism.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
