@@ -1,237 +1,520 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AETHER AI | Agencia de Marketing de Lujo</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
-  
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0a0a0a;
-      margin: 0;
-      overflow-x: hidden;
-      color: white;
-    }
-    ::-webkit-scrollbar {
-      width: 4px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #0a0a0a;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #262626;
-    }
-    .cinematic-frame {
-      border: 1.5rem solid #000;
-      pointer-events: none;
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-    }
-    @media (max-width: 768px) {
-      .cinematic-frame {
-        border: 0.5rem solid #000;
-      }
-    }
-    .text-outline {
-      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
-      color: transparent;
-    }
-    section {
-      position: relative;
-    }
-  </style>
-
-  <!-- Amazon Connect Snippet -->
-  <script type="text/javascript">
-    (function(w, d, x, id){
-      s=d.createElement('script');
-      s.src='https://moquintana.my.connect.aws/connectwidget/static/amazon-connect-chat-interface-client.js';
-      s.async=1;
-      s.id=id;
-      d.getElementsByTagName('head')[0].appendChild(s);
-      w[x] =  w[x] || function() { (w[x].ac = w[x].ac || []).push(arguments) };
-    })(window, document, 'amazon_connect', '1ea1540d-f642-439f-8dbe-0288fa8db012');
-    amazon_connect('styles', { iconType: 'CHAT', openChat: { color: '#ffffff', backgroundColor: '#123456' }, closeChat: { color: '#ffffff', backgroundColor: '#123456'} });
-    amazon_connect('snippetId', 'QVFJREFIZ0pCYTZ0Qi9waDNsZUIxbk9FM1lyUERza2Y3cWdnTG91REVVZjdQRzNwY1FFTWpNWlI2UEczUDIrbWtWeVZGaXZTQUFBQWJqQnNCZ2txaGtpRzl3MEJCd2FnWHpCZEFnRUFNRmdHQ1NxR1NJYjNEUUVIQVRBZUJnbGdoa2dCWlFNRUFTNHdFUVFNTldMbGpDYlFwQXYzTVp1OUFnRVFnQ3MxaTV3RGVMSmkzZTYyMkVoMytxVVEvOVlOZG50KzBNdUdtdk1ZVFdlaHZYVmpBY3VoYmRWUy8xTVo6OklLQ3VvRk9Qc1lCWTlBUDhSYWppaGRKQktpenE5a05OWEhqVFltc0JkbkVqS2hmZlcwWUc2WE1Ocms0aHdqbjJrcjh0WVQ5NEVGY2liR3JQQTF1WmJ4WTdPcEJZNlFqcVpoQk9tT2JoMVU0Zmp4WGRUOENCVjhVc3hIUGlqYnJMcTVwZlF3WUpsSGRqa01KS1hNWDVNSHBKTUREVU5DUT0=');
-    amazon_connect('supportedMessagingContentTypes', [ 'text/plain', 'text/markdown', 'application/vnd.amazonaws.connect.message.interactive', 'application/vnd.amazonaws.connect.message.interactive.response' ]);
-  </script>
-
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@19.0.0",
-    "react-dom": "https://esm.sh/react-dom@19.0.0",
-    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
-    "framer-motion": "https://esm.sh/framer-motion@12.0.0",
-    "react/": "https://esm.sh/react@^19.2.4/"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principios de Liderazgo - Versión Tarjetas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .search-box {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .search-box input {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1em;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .card-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .card-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .card-info {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background: white;
+            max-width: 900px;
+            margin: 50px auto;
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close:hover {
+            color: #333;
+        }
+        
+        .modal-header {
+            margin-bottom: 30px;
+        }
+        
+        .modal-title {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .caso {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        
+        .caso-header {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .star-label {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .star-content {
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .modal {
+                display: none !important;
+            }
+            .card {
+                page-break-inside: avoid;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .modal-content {
+                margin: 20px;
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div id="root"></div>
-
-  <script type="module">
-    import React, { useState, useEffect } from 'react';
-    import ReactDOM from 'react-dom/client';
-    import { motion, AnimatePresence } from 'framer-motion';
-
-    // --- Component: Navbar ---
-    const Navbar = () => {
-      const [scrolled, setScrolled] = useState(false);
-      useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 50);
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-      }, []);
-
-      return (
-        <motion.nav
-          initial={{ y: -100 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.8 }}
-          className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-8 md:px-24 py-8 ${scrolled ? 'bg-black/80 backdrop-blur-md py-6' : 'bg-transparent'}`}
-        >
-          <div className="max-w-screen-2xl mx-auto flex justify-between items-center">
-            <div className="flex flex-col">
-              <span className="text-xl font-black tracking-[0.5em] uppercase">Aether</span>
-              <span className="text-[0.5rem] tracking-[0.8em] uppercase text-stone-500">Intelligence Agency</span>
-            </div>
-            <div className="hidden md:flex gap-12">
-              {['Perspective', 'Couture', 'Intelligence', 'Dialogue'].map(item => (
-                <a key={item} href="#" className="text-[0.6rem] uppercase tracking-[0.4em] text-stone-400 hover:text-white transition-colors">{item}</a>
-              ))}
-            </div>
-            <button className="text-[0.6rem] uppercase tracking-[0.4em] border border-white/20 px-6 py-2 hover:bg-white hover:text-black transition-all">
-              Inquire
-            </button>
-          </div>
-        </motion.nav>
-      );
-    };
-
-    // --- Component: Hero ---
-    const Hero = () => (
-      <section className="relative h-screen flex items-center justify-center bg-black overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000')] bg-cover bg-center opacity-40 grayscale" style={{ filter: 'sepia(0.2) brightness(0.5)' }}></div>
-        <div className="relative z-10 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-            <span className="text-[0.6rem] uppercase tracking-[1.5em] text-stone-500 mb-8 block">Neural Architecture</span>
-            <h1 className="text-6xl md:text-[10rem] font-black tracking-[0.2em] leading-none uppercase text-white">AETHER</h1>
-            <h2 className="text-3xl md:text-6xl font-light tracking-[0.5em] uppercase text-stone-500 -mt-4 italic">Intelligence</h2>
-          </motion.div>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Principios de Liderazgo</h1>
+            <p>Haz clic en cualquier principio para ver los casos STAR</p>
         </div>
-      </section>
-    );
-
-    // --- Component: PortfolioSection ---
-    const PortfolioSection = ({ title, subtitle, imageUrl, reversed }) => (
-      <section className="relative h-screen w-full overflow-hidden flex flex-col justify-end p-8 md:p-24 group">
-        <div 
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-[5s] scale-105 group-hover:scale-100 grayscale brightness-50"
-          style={{ backgroundImage: `url('${imageUrl}')`, filter: 'sepia(0.1) brightness(0.4)' }}
-        ></div>
-        <div className={`relative z-10 max-w-2xl ${reversed ? 'ml-auto text-right' : ''}`}>
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}>
-            <h3 className="text-4xl md:text-7xl font-black uppercase tracking-widest mb-4">{title}</h3>
-            <p className="text-stone-400 tracking-[0.2em] uppercase text-sm font-light">{subtitle}</p>
-          </motion.div>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Buscar principio..." onkeyup="filtrarPrincipios()">
         </div>
-      </section>
-    );
-
-    // --- Component: AboutSection ---
-    const AboutSection = () => (
-      <section className="py-48 px-8 md:px-24 bg-[#0a0a0a]">
-        <div className="max-w-screen-xl mx-auto grid md:grid-cols-12 gap-12">
-          <div className="md:col-span-4">
-            <span className="text-[0.6rem] font-bold tracking-[1em] text-stone-600 uppercase">The Agency</span>
-          </div>
-          <div className="md:col-span-8">
-            <p className="text-2xl md:text-5xl font-light leading-snug tracking-tight text-stone-300">
-              Transformamos marcas de alto valor a través de <span className="text-white italic font-normal">estética computacional</span> y algoritmos de deseo. No hacemos marketing; diseñamos el futuro de la percepción.
-            </p>
-          </div>
+        
+        <div class="grid" id="principiosGrid"></div>
+    </div>
+    
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <div id="modalBody"></div>
         </div>
-      </section>
-    );
+    </div>
 
-    // --- Component: Footer ---
-    const Footer = () => (
-      <footer className="bg-black py-24 px-8 md:px-24 border-t border-white/5">
-        <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-end gap-12">
-          <div>
-            <h4 className="text-4xl font-black tracking-tighter uppercase mb-8">Ready to <br/>ascend?</h4>
-            <p className="text-stone-600 text-[0.6rem] tracking-[0.5em] uppercase">Private inquiry only.</p>
-          </div>
-          <div className="text-right">
-            <span className="text-[0.5rem] tracking-[1em] text-stone-700 uppercase">Aether AI &copy; 2025 // All rights reserved</span>
-          </div>
-        </div>
-      </footer>
-    );
+    <script>
+        const principios = [
+            {
+                "numero": 1,
+                "nombre": "Customer Obsession",
+                "casos": [
+                    {
+                        "situation": "Cuando trabajaba en Avaya, en Claro Colombia teníamos 6500 agentes de voz y NPS negativo en atención al cliente y atención digital separada. 8 de cada 10 clientes querían finalizar el contrato y el costo humano en el contact center cada vez más alto. Adicionalmente, el cliente saca un RFP para reemplazar a Avaya sin posibilidad de participar por no tener una solución de canales digitales.",
+                        "task": "Construir una propuesta que minimizara el costo humano, mejorar la experiencia del cliente y convertir los canales digitales en 'máquinas de ventas'.",
+                        "action": "En Argentina teníamos un aliado que solo maneja canales digitales y los convencí de ver este negocio e invertir en las integraciones entre las plataformas, firmamos un partnership y el producto completo con marca Avaya.\n\nOrganicé una mesa de trabajo con el account team y los convencí del modelo de negocio para armar una propuesta integral voz Avaya y digital con el aliado, con más de 100 casos de usos basados en IA para atención, ventas, retención y servicio.",
+                        "results": "Disminución +50% costo humano de 6500 agentes a 3200 agentes, 80% de retención en Bots con 5M de conversaciones digitales por WhatsApp, NPS positivo, RFP declarado desierto y firmamos contrato por 3 años con AAR 3.5M."
+                    },
+                    {
+                        "situation": "3 años intentando entrar a Compensar. Es un modelo de servicio para bienestar y recreación para todos los empleados de Colombia que comprende más de 7 líneas de negocios (salud, educación, financiero, recreación, turismo, vivienda y alimentación). El cliente cada 3 años cambiaba de plataforma de contact center debido a que solo servía para atender reclamos.",
+                        "task": "Entender las 7 líneas de negocio, en especial la de salud porque es la más importante, y convertir al centro de atención en una goldmine de revenue e inteligencia de productos.",
+                        "action": "Un año y medio antes de la renovación logré una alianza con QCS, empresa de consultoría de servicios cercana a Compensar, y les mostré al CEO el valor de trabajar con las soluciones Avaya junto con el partner integrador. Personalmente fui a los centros de salud, convencí al Managing Director de Avaya y al financiero de pasarnos a Compensar, y esto me dio la data de primera mano tanto en el field y cómo funcionan como empresa.\n\n- Creé una matriz de situaciones por cada línea de negocio con foco en salud y cómo con nuestra tecnología resuelve cada dolor, y lo presenté al cliente para cerrar el deal.\n\n- En el momento del cierre del negocio, el valor era por AAR 2.3M y el partner integrador no tenía forma de financiar la operación. Directamente involucré a TD-Synnex directo con el VP para apoyar al partner con el crédito del deal, con la firmeza que el acuerdo lo tenía cerrado directamente con el CEO de Compensar.",
+                        "results": "10M en ahorros anuales en citas médicas, 40% disminución de costo de urgencias y 2.4x incremento Customer Lifetime Value."
+                    }
+                ]
+            },
+            {
+                "numero": 2,
+                "nombre": "Ownership",
+                "casos": [
+                    {
+                        "situation": "En Avaya se lanza la nueva solución CCaaS full cloud. Pasaron 2 Qs y no se vendió 1 seat en toda Latam, incluso global menos de 100 global. Nadie quería vender por sentirse cómodo vendiendo On-premise y la solución legacy.",
+                        "task": "Migrar clientes on-premise a cloud y proteger la base de competidores (Genesys y Five9), traer nuevos logos y convertir el revenue en recurrente con contratos multiaño para cerrar 2000 seats.",
+                        "action": "Creé un programa de entrenamiento - CCaaS esCool para vender, posicionar, casos de uso, mostrando que esta era la vía más rápida de hacer la cuota con acelerados e incentivos con ellos y partners.\n- Creé el programa Experience Builder, es un bootcamp para clientes y partners donde se invitaban a los influenciadores a desarrollar y probar la solución de CCaaS durante 3 días. Esto se hizo en toda Latam.\n- Me involucré directamente en los top deals de todas las regiones de Latam en todo el ciclo de ventas (Venta, preventa, delivery y soporte) para garantizar el Customer Story.",
+                        "results": "En H2 se logró cerrar 3000 seats, 15 nuevos logos y 500K MRR incremental, y cerré directamente 5 BPOs."
+                    },
+                    {
+                        "situation": "Inconcert tenía 2 líneas de negocios: Contact Center tradicional y las soluciones de AI Agent conversacionales de voz y texto. El revenue estaba distribuido en 90% tradicional y 10% AI, con un decrecimiento del 5% del MRR Q over Q.",
+                        "task": "Incrementar el revenue de la línea de AI Agent para compensar el decrecimiento de la línea de Contact Center tradicional y cerrar con un crecimiento total de 20%.",
+                        "action": "Creé un banco de casos de uso y demos de diferentes verticales estratégicas (Salud, Telco, Educación, Retail, Banca y Hospitality) con demos funcionales/personalizables con integración a CRM Salesforce y Dynamics, calendario y creación de tickets, entre otros.\n- Di varias capacitaciones a todo el equipo de ventas para que todos estuviéramos habilitados para hacer la demo a un cliente sin apoyo técnico en cualquier momento SIN POWERPOINT.\n- Lancé nuevamente mi estrategia de bootcamp con clientes y partners con la convicción de que la capacitación es la venta.",
+                        "results": "Crecimiento de +400% y ahora la línea de AI Agent representa el 50% del revenue con una conversión a booking del 30% de las propuestas entregadas."
+                    }
+                ]
+            },
+            {
+                "numero": 3,
+                "nombre": "Invent and Simplify",
+                "casos": [
+                    {
+                        "situation": "Avaya se declara en Chapter 11 e inmediatamente los partners comienzan a perder talentos en todas las áreas.",
+                        "task": "Atraer nuevos talentos para la contratación de los partners y seguir hacia adelante con la marca Avaya.",
+                        "action": "Construí una propuesta de formación para estudiantes de último semestre de la universidad y la presenté en las mejores universidades del país. En un modelo de ganar-ganar. Hice +10 Hackathons con diferentes patrocinadores de la industria y jurados de alto nivel.",
+                        "results": "Más de 400 ingenieros formados en Avaya para la comunidad de partners.\n- Cerré negocio con 5 universidades.\n- Posicionamiento y fortaleza de la marca a pesar del Chapter 11."
+                    }
+                ]
+            },
+            {
+                "numero": 4,
+                "nombre": "Are Right, A Lot",
+                "casos": [
+                    {
+                        "situation": "Inicio de año fiscal 26: incremento de cuota del 25% y se pierde un deal importante en Q1.",
+                        "task": "Buscar nuevas fuentes de revenue en Latam para cubrir el crecimiento y el gap del deal perdido.",
+                        "action": "Creé un plan de recuperación del revenue en Venezuela con foco en cuentas estratégicas: Telco, Banca y Alimentos.\nTomé el control del país como Country Manager, reorganicé a los partners, viajé a Venezuela, hice 2 eventos con partners y clientes con el lema 'Avaya is back in Venezuela'.\nCreé una estrategia financiera y seguridad de pagos con 2 Master Distributors, hicimos workshops con cada cliente y presentamos propuesta de migración y crecimiento.",
+                        "results": "Revenue 3.5M year over year en un ambiente regulado y con muchos desafíos económicos."
+                    }
+                ]
+            },
+            {
+                "numero": 5,
+                "nombre": "Learn and Be Curious",
+                "casos": [
+                    {
+                        "situation": "En 2018 tuvimos una crisis en la vertical de Retail porque los top 5 clientes veían las soluciones de Contact Center que eran estándar y simplemente un centro de costo desconectado del negocio, con lo cual no iban a renovar contratos que sumaban 20M.",
+                        "task": "Que los clientes entendieran que el contact center es un pilar de la experiencia del cliente, que sí era posible conectarlo al negocio y convertirlo en motor de generación de revenue.",
+                        "action": "Comencé a estudiar de la industria del retail y, luego de hacer trabajo de campo, entendí que un pilar importante en el negocio es el IoT (sensores, etiquetas de precio) y subutilización de expertos en tienda que podrían apoyar en la venta en línea de productos de alto valor.\nConstruí una estrategia de cambios de precio dinámica, monitoreo de neveras y acción inmediata desde Contact Center.\nAdicionalmente, los asesores expertos en tienda se convirtieron en una extensión del contact center con una aplicación móvil.",
+                        "results": "Se renovaron todos los contratos con crecimiento promedio del 20%.\nEsta práctica en retail quedó como estrategia global en retail.\nSe convirtió en caso de éxito e incluido en varias Keynotes."
+                    }
+                ]
+            },
+            {
+                "numero": 6,
+                "nombre": "Hire and Develop the Best",
+                "casos": [
+                    {
+                        "situation": "Preventa reactiva que esperaba requerimiento y actuaba orientado a la tarea, a pesar de tener una cuota de ventas.",
+                        "task": "Convertir el rol de preventa a consultor de soluciones proactivo orientado a ventas.",
+                        "action": "Creé un programa completo de evolución del rol llamado Solution Consultant Transformation que incluyó formación en:\nsoft skills, verticales de industria, Account planning, posicionamiento de roadmap a C-Level.\nCreé la metodología de Discovery Workshop para clientes estratégicos.",
+                        "results": "Luego de 1 año del programa, los Solution Consultants comenzaron a trabajar mano a mano con los Account Managers enfocados en el cliente y se multiplicó la fuerza de ventas sin incrementar el headcount. El área de Presales, luego Solutions Consulting, se convirtió en un área aspiracional para moverse internamente."
+                    }
+                ]
+            },
+            {
+                "numero": 7,
+                "nombre": "Insist on the Highest Standards",
+                "casos": [
+                    {
+                        "situation": "En 2020 fui nombrado Managing Director Acting para Andean Region con la responsabilidad de cerrar el año fiscal en 28M. Pasé de tener 10 personas a mi cargo a manejar una operación de 150 personas.",
+                        "task": "Sobrecumplir la cuota y llegar a 30M teniendo presente que estábamos en pandemia, entonces teníamos que capitalizar todas las necesidades de atención no presencial.",
+                        "action": "Creé el Emergency Kit for Covid, fue un paquete de 90 días de licencias, servicios profesionales y soporte 24/7 para montar contact centers en menos de 24 horas.",
+                        "results": "Cerramos el FY 21 en 35M con +10.000 Agentes. Todo el equipo trabajando desde casa. Fue el mejor año de Andean Region en los últimos 5 años."
+                    }
+                ]
+            },
+            {
+                "numero": 8,
+                "nombre": "Think Big",
+                "casos": [
+                    {
+                        "situation": "Muchos eventos realizados con bajo impacto y poca conversión de revenue y nuevos leads no calificados, y presupuesto de marketing cada vez más ajustado.",
+                        "task": "Hacer un evento de 2000 clientes clave y convertir 10M en revenue.",
+                        "action": "Creé el evento Avaya Innovations y cuidé directamente cada detalle desde el sitio, la agenda, speakers (Internos, Influenciadores de la industria). Convencí a la Vice Ministra de Transformación Digital y la presidenta de la asociación de BPO como Speakers.\nCreé una zona expo que se llamó la Ruta de la Experiencia que te llevaba por diferentes verticales y demostraba todas las soluciones con una historia que conectaba todo. Stage y Zona Expo.",
+                        "results": "Este evento logró convertir 15M y quedó como formato de evento para toda Latam."
+                    }
+                ]
+            },
+            {
+                "numero": 9,
+                "nombre": "Bias for Action",
+                "casos": [
+                    {
+                        "situation": "En Inconcert tenía un cliente muy importante en México dedicado al sector educación que estaba teniendo una deserción universitaria del 25% y la conversión a nuevos estudiantes estaba en el 3%, con lo cual estaba perdiendo más estudiantes que los nuevos ingresos. Adicionalmente, con una cartera vencida del 40%.",
+                        "task": "Incrementar la conversión de nuevos estudiantes en 15% y bajar la cartera vencida a 20%.",
+                        "action": "En 2 días creé un modelo proactivo de Speech Analytics que por AI analizara las grabaciones de todos los clientes e identificara las dudas y objeciones porque no terminaban de cerrar el proceso de inscripción, y para la cartera vencida los motivos de no pago. Al detectar estos eventos, un Agente AI conversacional contacta al interesado o pagador y con diferentes prompts, base de conocimiento e integración con CRM, busca cerrar la inscripción o tener una promesa de pago.",
+                        "results": "Se logró llegar al 12% de conversión, pero la cartera vencida llegó a un 10%.\nPara Inconcert representó un crecimiento del 20% en el AAR."
+                    }
+                ]
+            },
+            {
+                "numero": 10,
+                "nombre": "Frugality",
+                "casos": [
+                    {
+                        "situation": "Yo lideraba la estrategia y el revenue de CCaaS para Latam y la subregión de Cono Sur tuvo una caída de 300 agentes.",
+                        "task": "Crear un programa de incentivos para recuperar los 300 agentes de manera rápida.",
+                        "action": "Creé el programa en Colombia - CCaaS Grand Prix, donde los pilotos eran los Account Managers y al ganador se le entregó un viaje a la playa con una inversión de 1000 USD, el cual fue patrocinado por el distribuidor.",
+                        "results": "Se logró cerrar 500 agentes y se convirtió en una práctica en Latam para incentivar el crecimiento."
+                    }
+                ]
+            },
+            {
+                "numero": 11,
+                "nombre": "Earn Trust",
+                "casos": [
+                    {
+                        "situation": "El equipo de Latam no estaba seguro sobre las nuevas soluciones Cloud y querían seguir impulsando soluciones on-premise legacy.",
+                        "task": "Adopción de las soluciones cloud y dar claridad de que es el futuro de la empresa.",
+                        "action": "Hice sesiones de roadmap de producto en todos los All Hands y un Newsletter semanal, demostrando las nuevas soluciones y posicionando los beneficios para clientes, partners, empresa y para cada miembro del equipo.",
+                        "results": "Los que vendieron cloud todos hicieron su cuota y los que se mantuvieron en legacy no llegaron a su número. Todo el equipo esperaba emocionado mis anuncios para conocer lo nuevo."
+                    }
+                ]
+            },
+            {
+                "numero": 12,
+                "nombre": "Deep Dive",
+                "casos": [
+                    {
+                        "situation": "En Inconcert no eran claros los KPI de gestión comercial y el esfuerzo en el punto de la venta era el mismo para un deal de 1K que el de 1M. Por tanto, se perdían deals grandes por hacer una PoC a un cliente de 3K.",
+                        "task": "Tener una medición clara de esfuerzo comercial para conversión de oportunidades a revenue.",
+                        "action": "Hice un sistema de medición de cada esfuerzo comercial en cada oportunidad: Presentación > Demo > RFP > Propuesta > PoC > Booking.",
+                        "results": "Analítica clara donde se está invirtiendo los esfuerzos comerciales vs. el revenue potencial, y esto permitió tomar decisiones muy rápidas de cambio de prioridades, distribución de cargas y precisión en el forecast."
+                    }
+                ]
+            },
+            {
+                "numero": 13,
+                "nombre": "Have Backbone; Disagree and Commit",
+                "casos": [
+                    {
+                        "situation": "Nos enteramos 2 semanas antes que salió el RFP de tecnología de la Seguridad Social de España con presupuesto de 400M Euros y para la parte de Contact Center era 10M de Euros. No teníamos la confirmación de un integrador habilitado que nos incluyera en su propuesta. Sin embargo, el VP de Sales insistió que debíamos responder el RFP y armar todo el paquete completo.",
+                        "task": "Revisar y responder una licitación con el presupuesto de tecnología más grande de España en menos de 2 semanas.",
+                        "action": "Hice una revisión completa del RFP y con IA construí un dashboard de cumplimiento e implicaciones tales como certificados de seguridad nacional y dedicación de todo el equipo para un negocio que no tenía ningún tipo de control comercial y técnico.",
+                        "results": "Se generó un conflicto de no presentarnos en el proceso, pero las evidencias eran claras que no había control y no descuidamos los negocios en curso que sí estaban trabajados y listos para cerrar con contratos multiaño."
+                    }
+                ]
+            },
+            {
+                "numero": 14,
+                "nombre": "Driving Results",
+                "casos": [
+                    {
+                        "situation": "En octubre 2022 fui nombrado Senior Manager para Latam con 11 Solutions Consultants con una cuota de 32M en un mercado con muchos competidores y todos ofreciendo soluciones estándar, siendo el precio el único factor de decisión y Avaya era una solución de alto nivel por ende costosa.",
+                        "task": "Lograr vender 32M y cambiar el factor de decisión a Valor.",
+                        "action": "Creé el programa TIGER - TOP Initiatives Generation Empowerment Revenue. Es una estrategia en que cada integrante del equipo -incluido yo- debía entregar 5 iniciativas de generación de revenue fuera del libreto (Use Cases, PoC, Demo, Eventos, Bootcamp, Alianzas) con 2 condiciones: Control y Revenue.",
+                        "results": "Otra práctica creada por mí que se replicó en otras áreas de Latam y parte Global. Se logró 130% de cuota y fui invitado a Irlanda a compartir esta experiencia y los casos de éxito cerrados con esta estrategia."
+                    }
+                ]
+            },
+            {
+                "numero": 15,
+                "nombre": "Strive to be Earth's Best Employer",
+                "casos": [
+                    {
+                        "situation": "Luego del 2do Chapter 11, la motivación del equipo estaba muy baja y nadie quería aprender sobre las nuevas soluciones y prepararse para las certificaciones, y mucho menos ir a la oficina.",
+                        "task": "Crear un ambiente de aprendizaje colaborativo y motivación a tomar las nuevas certificaciones.",
+                        "action": "Creé el Pizza Friday. El primer viernes de cada mes se compartía una pizza y cada uno presentaba un tópico de preparación para las certificaciones. Adicional con el CCaaS esCool.",
+                        "results": "Todos actualizados, certificados y motivados con la energía de defender la marca vs. los competidores que decían que la empresa había desaparecido. Se logró retener el 70% de la base instalada."
+                    }
+                ]
+            },
+            {
+                "numero": 16,
+                "nombre": "Success and Scale Bring Broad Responsibility",
+                "casos": [
+                    {
+                        "situation": "En uno de los Hackathons me llamó una profesora del SENA que si podía incluir a 4 personas, que si bien no son Ingenieros, tienen un gran potencial y son personas rescatadas de ocioso y violencia intrafamiliar.",
+                        "task": "Conseguir autorización de los rectores de las universidades participantes para permitir esa inclusión y darles acceso a la universidad sede de la actividad con todos los recursos como el resto de participantes.",
+                        "action": "Trabajé con estas personas un día antes para que tuvieran el nivel y las herramientas. Les compartí recursos de autoestudio antes de la fecha del Hackathon.",
+                        "results": "El Equipo del SENA logró el segundo lugar de la competencia y junto a su profesora se convirtieron en ISV ayudando a varios de los partners en proyectos que necesitaban desarrollo e integraciones de aplicaciones."
+                    }
+                ]
+            }
+        ];
 
-    // --- Main App ---
-    const App = () => {
-      const [isLoaded, setIsLoaded] = useState(false);
-      useEffect(() => {
-        setTimeout(() => setIsLoaded(true), 1500);
-      }, []);
-
-      return (
-        <div className="bg-[#0a0a0a]">
-          <div className="cinematic-frame"></div>
-          
-          <AnimatePresence>
-            {!isLoaded && (
-              <motion.div 
-                exit={{ opacity: 0 }} 
-                className="fixed inset-0 z-[200] bg-black flex items-center justify-center"
-              >
-                <span className="text-[0.5rem] tracking-[2em] uppercase animate-pulse">Aether</span>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          <Navbar />
-          <Hero />
-          <AboutSection />
-          
-          <PortfolioSection 
-            title="VISUAL CORE" 
-            subtitle="Identidades generadas por redes neuronales profundas." 
-            imageUrl="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000"
-            reversed={false}
-          />
-          <PortfolioSection 
-            title="NEURAL SCALE" 
-            subtitle="Estrategias de crecimiento que aprenden del mercado." 
-            imageUrl="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2000"
-            reversed={true}
-          />
-          <PortfolioSection 
-            title="LUXURY DATA" 
-            subtitle="Análisis predictivo para audiencias de ultra-lujo." 
-            imageUrl="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2000"
-            reversed={false}
-          />
-
-          <Footer />
-        </div>
-      );
-    };
-
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
-  </script>
-<script type="module" src="/index.tsx"></script>
+        function renderPrincipios() {
+            const grid = document.getElementById('principiosGrid');
+            grid.innerHTML = '';
+            
+            principios.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.onclick = () => abrirModal(p);
+                
+                card.innerHTML = `
+                    <div class="card-number">${p.numero}</div>
+                    <div class="card-title">${p.nombre}</div>
+                    <div class="card-info">${p.casos.length} caso${p.casos.length > 1 ? 's' : ''} STAR</div>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+        
+        function abrirModal(principio) {
+            const modal = document.getElementById('modal');
+            const modalBody = document.getElementById('modalBody');
+            
+            let casosHTML = '';
+            principio.casos.forEach((caso, index) => {
+                casosHTML += `
+                    <div class="caso">
+                        ${principio.casos.length > 1 ? `<div class="caso-header">Caso ${index + 1}</div>` : ''}
+                        <div class="star-label">📍 SITUATION</div>
+                        <div class="star-content">${caso.situation}</div>
+                        
+                        <div class="star-label">🎯 TASK</div>
+                        <div class="star-content">${caso.task}</div>
+                        
+                        <div class="star-label">⚡ ACTION</div>
+                        <div class="star-content">${caso.action.replace(/\n/g, '<br>')}</div>
+                        
+                        <div class="star-label">🏆 RESULTS</div>
+                        <div class="star-content">${caso.results.replace(/\n/g, '<br>')}</div>
+                    </div>
+                `;
+            });
+            
+            modalBody.innerHTML = `
+                <div class="modal-header">
+                    <div class="card-number" style="display: inline-block; margin-right: 15px;">${principio.numero}</div>
+                    <div class="modal-title" style="display: inline-block;">${principio.nombre}</div>
+                </div>
+                ${casosHTML}
+            `;
+            
+            modal.style.display = 'block';
+        }
+        
+        function cerrarModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+        
+        function filtrarPrincipios() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(input) ? 'block' : 'none';
+            });
+        }
+        
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target == modal) {
+                cerrarModal();
+            }
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                cerrarModal();
+            }
+        });
+        
+        renderPrincipios();
+    </script>
 </body>
 </html>
